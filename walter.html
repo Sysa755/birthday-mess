@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Epic 24th Birthday Celebration! 🎮</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            text-align: center;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #00ff00;
+            font-size: 2.8em;
+            text-shadow: 0 0 15px #0f0;
+            animation: glitch 1.5s infinite;
+            margin: 30px 0;
+            letter-spacing: 3px;
+        }
+
+        .photo-frame {
+            border: 3px solid #0f0;
+            padding: 10px;
+            background: #1a1a1a;
+            box-shadow: 0 0 25px #0f0;
+            margin: 30px auto;
+            max-width: 400px;
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            border: 2px solid #0f0;
+            filter: grayscale(30%) contrast(120%);
+        }
+
+        .birthday-balloon {
+            width: 120px;
+            height: 160px;
+            position: fixed;
+            bottom: -200px;
+            border-radius: 50% 50% 45% 45%;
+            animation: floatUp 18s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+            opacity: 0.9;
+            font-size: 0.8em;
+            text-align: center;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        .birthday-balloon::before {
+            content: "HAPPY BIRTHDAY!";
+            position: absolute;
+            transform: rotate(-35deg);
+            width: 100px;
+            line-height: 1.2;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(-8deg); }
+            100% { transform: translateY(-100vh) rotate(8deg); }
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            font-size: 1.2em;
+            color: #0f0;
+            animation: fall 10s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @keyframes glitch {
+            2% { text-shadow: 4px 0 #0ff, -4px 0 #f0f; }
+            4% { text-shadow: none; }
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            border: 2px solid #0f0;
+            border-radius: 10px;
+        }
+
+        .music-player button {
+            background: none;
+            border: none;
+            color: #0f0;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .music-player button:hover {
+            transform: scale(1.2);
+            color: #0ff;
+        }
+
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg" id="matrix"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Birthday Balloons -->
+    <div class="birthday-balloon" style="left: 5%; background: #FF6B6B; animation-delay: 0s"></div>
+    <div class="birthday-balloon" style="left: 15%; background: #4ECDC4; animation-delay: 2s"></div>
+    <div class="birthday-balloon" style="left: 25%; background: #45B7D1; animation-delay: 4s"></div>
+    <div class="birthday-balloon" style="left: 35%; background: #96CEB4; animation-delay: 6s"></div>
+    <div class="birthday-balloon" style="left: 55%; background: #FFEEAD; animation-delay: 1s"></div>
+    <div class="birthday-balloon" style="left: 65%; background: #D4A5A5; animation-delay: 3s"></div>
+    <div class="birthday-balloon" style="left: 75%; background: #AEC6CF; animation-delay: 5s"></div>
+    <div class="birthday-balloon" style="left: 85%; background: #FFB347; animation-delay: 7s"></div>
+
+    <div class="container">
+        <h1>🎉 HAPPY 24TH BIRTHDAY [Chepkelio]! 🚀</h1>
+
+        <div class="photo-frame">
+            <img src="walter.jpg" alt="Birthday Star">
+        </div>
+
+        <div class="code-card">
+            <h2>🌟 Special Birthday Message 💫</h2>
+            <p>"The future belongs to those who believe in the beauty of their dreams."</p>
+            <p>Keep coding amazing experiences!</p>
+            <p>🎮 Today we celebrate YOU! 🎂</p>
+        </div>
+        <div class="code-card"></div>
+            <h2>🤖 Tech Joke of the Day 💻</h2>
+            <p>"Why do programmers prefer dark mode? Because light attracts bugs!"</p>
+            <p>"Programming is the art of solving problems you didn't know you had, in ways you don't understand."</p>
+        </div>
+
+        <button onclick="showMessage()" class="cyber-button">🎮 View Secret Message</button>
+        <button onclick="startConfetti()" class="cyber-button">🎉 Activate Celebration</button>
+
+        <p id="specialMessage" style="display:none; font-size:1.3em; animation: glow 2s infinite;">
+            To the tech wizard turning 24:<br>
+            May your year be filled with:<br>
+            💻 Bug-free code<br>
+            🚀 Successful launches<br>
+            🎯 Achieved goals<br>
+            🥳 Epic celebrations!<br>
+            From [Nimrod]
+        </p>
+    </div>
+
+    <div class="music-player">
+        <button id="musicToggle" onclick="toggleMusic()">🎵</button>
+        <audio id="bgMusic" loop>
+            <source src="habibi.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        function createMatrix() {
+            const chars = "01";
+            const matrix = document.getElementById('matrix');
+            
+            setInterval(() => {
+                const element = document.createElement("div");
+                element.className = "binary-rain";
+                element.style.left = Math.random() * 100 + "%";
+                element.textContent = chars.charAt(Math.floor(Math.random() * chars.length));
+                matrix.appendChild(element);
+                
+                setTimeout(() => element.remove(), 10000);
+            }, 75);
+        }
+
+        // Music control
+        const audio = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play().catch(() => { /* Handle autoplay restrictions */ });
+            }
+            isPlaying = !isPlaying;
+            document.getElementById('musicToggle').textContent = isPlaying ? '🔊' : '🎵';
+        }
+
+        // Confetti particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '8px';
+            particle.style.height = '8px';
+            particle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '-10px';
+            document.getElementById('particles').appendChild(particle);
+
+            particle.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(${window.innerHeight + 100}px) rotate(${360}deg)`, opacity: 0 }
+            ], {
+                duration: 3000 + Math.random() * 2000,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            }).onfinish = () => particle.remove();
+        }
+
+        function startConfetti() {
+            setInterval(createParticle, 150);
+            setTimeout(() => clearInterval(confettiInterval), 5000);
+        }
+
+        function showMessage() {
+            document.getElementById('specialMessage').style.display = 'block';
+        }
+
+        // Initialize effects
+        createMatrix();
+        document.addEventListener('click', () => {
+            if (!isPlaying) {
+                toggleMusic();
+            }
+        });
+    </script>
+</body>
+</html>
